@@ -67,29 +67,50 @@
                         <img src="https://i.imgur.com/khN9ca7.png" alt="Active Directory Setup" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
                    </ul>
                 </li>
-                <li><strong>Create User Accounts:</strong>
+                <li><strong>Create Admin User Account:</strong>
                     <ul>
-                        <li>Create test user accounts within the appropriate OUs.</li>
-                        <li>Set passwords and ensure appropriate group memberships.</li>
+                        <li>Open <code>Start</code> menu and select the drop-down menu on <code>Windows Administrative Tools</code> from that drop-down select <code>Active Directory Users and Computers</code>  </li>
+                        <img src="https://i.imgur.com/tm2F1xd.png" alt="Active Directory Diagram" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
+                        <li>Right-click <code>_ADMINS</code> hover the cursor over <code>New</code> and from that drop-down select <code>User</code>.</li>
+                        <img src="https://i.imgur.com/dhWtYQP.png" alt="DHCP Configuration Example" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
+                        <li>Enter the Information for an admin user. (An easy login name for an admin could be "a" first name initial followed by last name. E.A. <code>a-jjackson</code>)</li>
+                        <img src="https://i.imgur.com/A3w6oep.png" alt="Server Configuration Example" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
+                        <li>Select next and give the account a password, uncheck <code>User must change password at next logon</code> and check <code>Password never expires</code> select next and then <code>Finish</code> to confirm.
                     </ul>
                 </li>
-                <li><strong>Group Policy Configuration:</strong>
+                <li><strong>Create User Accounts with PowerShell:</strong>
                     <ul>
-                        <li>Use <code>Group Policy Management</code> to create and link Group Policy Objects (GPOs).</li>
-                        <li>Apply policies to enforce settings like password complexity and desktop backgrounds.</li>
+                        <li>Hold the <code>Windows key + R</code> on the keyboard to open a search bar.</li>
+                        <li>Type <code>Powershell ISE</code> and select <code>OK</code>.</li>
+                        <li>In the blue cmd enter the command <code>Set-ExecutionPolicy Unrestricted</code> and press enter</li>
+                        <li>Next change the directory to wherever the PowerShell script is located using the <code>cd</code> command</li>
+                        <li>Open the script by selecting the <code>Folder</code> called <code>Open Script</code>.</li>
+                        <li>Select the <code>Green PLay icon</code> to run the script to begin adding the user.</li>
+                        <img src="https://i.imgur.com/yEcoJCB.png" alt="Network Configuration Example" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
+                        <li>Some errors may occur this is due to the fact that the name generator can make duplicate names.</li>
                     </ul>
                 </li>
                 <li><strong>Join a Client to the Domain:</strong>
                     <ul>
-                        <li>On the client machine, set the primary DNS to the domain controller's IP address.</li>
-                        <li>Join the client to the domain through <code>System Properties</code>.</li>
-                        <li>Verify successful domain join by logging in with a domain user account.</li>
+                        <li>On the client machine, navigate to <code>Settings</code> and open <code>About</code>.</li>
+                        <li>Select <code>Advanced system settings</code>, this will open <code>System Properties</code>.
+                        <li>Select <code>Change...</code> under computer name enter <code>CLIENT1</code>.</li>
+                        <li>Under Member of select <code>Domain</code> and then enter <code>mydomain.com</code> then select <code>OK</code> then <code>Apply</code> to commit the changes.</li>
+                        <img src="https://i.imgur.com/Jb75qY2.png" alt="Server Manager Roles" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
                     </ul>
                 </li>
                 <li><strong>Test and Verify:</strong>
                     <ul>
-                        <li>Log in with created user accounts and verify access to shared resources.</li>
-                        <li>Check the application of GPOs on the client machine using <code>gpresult /r</code>.</li>
+                        <li>To verify that the Client has been given an IP address with DHCP in the Windows 2019 Server navigate to <code>DHCP</code> from <code>Tools</code>.</li>
+                        <li>Open the <code>IPv4</code> drop-down then open <code>Scope[172.16.0.0] 172.16.0.100-200</code> and then selecting <code>Address Leases</code>
+                        <img src="https://i.imgur.com/rsAoUWi.png" alt="DHCP Configuration Wizard" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
+                        <li>To verify that the Client is in the domain open <code>Active Directory Users and Computers</code> from <code>Tools</code>
+                        <li>Select the drop-down from <code>mydomain.com</code> and then open <code>Computers</code> it should show the Client Computer.</li>
+                        <img src="https://i.imgur.com/7AFfJKS.png" alt="Server Manager DHCP Role" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
+                        <li>Verify successful domain join by logging in with a domain user account. (It should say Sign in to: <code>MYDOMAIN</code>)</li>
+                        <img src="https://i.imgur.com/f4szAu9.png" alt="DHCP Scope Setup" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
+                        <li>Open <code>cmd</code> in the Client machine and enter the command <code>whoami</code>. (It should show the domain and the username for that user)</li>
+                        <img src="https://i.imgur.com/SaAt6PP.png" alt="DHCP Lease Example" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
                     </ul>
                 </li>
             </ol>
