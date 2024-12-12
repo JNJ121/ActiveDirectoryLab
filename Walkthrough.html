@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jabari Neal-Jackson">
+    <meta name="description" content="Documentation for Active Directory Lab">
+    <title>Active Directory Lab Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #539ecc;
+            color: #ffffff;
+            padding: 10px 15px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            color: #35424a;
+        }
+        code {
+            background-color: #eef;
+            padding: 2px 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #539ecc;
+            color: #ffffff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        a {
+            color: #35424a;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }body {
+    margin-bottom: 0px; 
+}
+
+footer {
+    position: static;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Active Directory Lab Documentation</h1>
+        <p>By Jabari Neal-Jackson</p>
+            </header>
+    <main>
+        <section>
+            <h2>Objective</h2>
+            <p>The goal of this lab is to set up and configure an Active Directory environment to understand its core functionalities, including user and group management, domain configuration, and security policies.</p>
+        </section>
+        <section>
+            <h2>Lab Setup</h2>
+            <p>Prerequisites for this lab:</p>
+            <ul>
+                <li>A virtual machine running Windows Server (e.g., Windows Server 2019 or 2022).</li>
+                <li>A second VM running Windows 10 or 11 for client testing.</li>
+                <li>Basic networking setup to allow communication between the VMs.</li>
+            </ul>
+            <p><strong>Note:</strong> VM installation and OS setup are not included in this documentation.</p>
+        </section>
+        <section>
+            <h2>Steps</h2>
+            <ol>
+                <li><strong>Promote the Windows Server to a Domain Controller:</strong>
+                    <ul>
+                        <li>Open <code>Server Manager</code> and select <code>Add Roles and Features</code>.</li>
+                        <li>Choose <code>Active Directory Domain Services (AD DS)</code> and complete the wizard.</li>
+                        <li>Promote the server to a domain controller using the <code>Active Directory Domain Services Configuration Wizard</code>.</li>
+                        <li>Configure a new forest and domain (e.g., <code>example.local</code>).</li>
+                        <li>Restart the server to apply changes.</li>
+                    </ul>
+                </li>
+                <li><strong>Configure DNS:</strong>
+                    <ul>
+                        <li>Ensure DNS is installed and running on the domain controller.</li>
+                        <li>Verify forward and reverse lookup zones are created automatically.</li>
+                    </ul>
+                </li>
+                <li><strong>Create Organizational Units (OUs):</strong>
+                    <ul>
+                        <li>Open the <code>Active Directory Users and Computers</code> tool.</li>
+                        <li>Create OUs to organize users, groups, and computers (e.g., <code>IT</code>, <code>HR</code>).</li>
+                    </ul>
+                </li>
+                <li><strong>Create User Accounts:</strong>
+                    <ul>
+                        <li>Create test user accounts within the appropriate OUs.</li>
+                        <li>Set passwords and ensure appropriate group memberships.</li>
+                    </ul>
+                </li>
+                <li><strong>Group Policy Configuration:</strong>
+                    <ul>
+                        <li>Use <code>Group Policy Management</code> to create and link Group Policy Objects (GPOs).</li>
+                        <li>Apply policies to enforce settings like password complexity and desktop backgrounds.</li>
+                    </ul>
+                </li>
+                <li><strong>Join a Client to the Domain:</strong>
+                    <ul>
+                        <li>On the client machine, set the primary DNS to the domain controller's IP address.</li>
+                        <li>Join the client to the domain through <code>System Properties</code>.</li>
+                        <li>Verify successful domain join by logging in with a domain user account.</li>
+                    </ul>
+                </li>
+                <li><strong>Test and Verify:</strong>
+                    <ul>
+                        <li>Log in with created user accounts and verify access to shared resources.</li>
+                        <li>Check the application of GPOs on the client machine using <code>gpresult /r</code>.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+        <section>
+            <h2>Conclusion</h2>
+            <p>This lab provides hands-on experience with setting up and managing an Active Directory environment, focusing on key concepts like domain controllers, OUs, user management, and group policies.</p>
+            <p>For any questions or feedback, please contact me at <a href="mailto:Jabarijnj@gmail.com">Jabarijnj@gmail.com</a>.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Jabari Neal-Jackson</p>
+    </footer>
+</body>
+</html>
