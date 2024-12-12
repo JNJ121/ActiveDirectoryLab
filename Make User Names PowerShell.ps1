@@ -42,3 +42,4 @@ while ($count -lt $NUMBER_OF_ACCOUNTS_TO_CREATE) {
                -Enabled $true
     $count++
 }
+#Credit to Josh Madakor for source code#
