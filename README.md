@@ -54,11 +54,17 @@
                        <img src="https://i.imgur.com/CmMapz1.png" alt="Active Directory Diagram" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
                        <li>Navigate to <code>Tools</code> and select <code>DHCP</code>.</li>
                        <li>Select the drop-down on <code>dc.mydomain.com</code> to see IPv4 and IPv6 options.</li>
-                       <li>Right click <code>IPv4</code> and select <code>New Scope...</code> to open scope wizard.</li>
+                       <li>Right-click <code>IPv4</code> and select <code>New Scope...</code> to open scope wizard.</li>
                        <li>Enter the IP address range as the name for the scope (<code>172.16.0.100-200</code>) then select next.</li>
                        <img src="https://i.imgur.com/TY80mKF.png" alt="Active Directory Configuration" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
+                       <li>The next page is setting the IP range the start IP address will be <code>172.16.0.100</code> and the end IP address will be <code>172.16.0.200</code>. Set the subnet to             <code>24</code> it is identified as <code>Length</code>, it should read <code>255.255.255.0</code>.
+                        <li>The lease Duration is the next setting but I kept it at the default 8 days because there is no need to change in this lab. Select <code>next</code> until the default gateway screen.</li>
                        <li>Enter the Router default gateway as <code>172.16.0.1</code> and select <code>Add</code> then next to move forward.</li>
                        <img src="https://i.imgur.com/RZCXcNA.png" alt="Active Directory Server Setup" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
+                        <li>Select until <code>Finsh</code> is and option and select that. Right-click the <code>dc.mydomain.com</code> and select <code>Authorize</code> then right-click the <code>dc.mydomain.com</code> and select <code>Refresh</code>.
+                        <img src="https://i.imgur.com/DGJrTo3.png" alt="Active Directory Configuration" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
+                        <li>Both <code>IPv4</code> and <code>IPv6</code> should have a green check to show they are up.</li>
+                        <img src="https://i.imgur.com/khN9ca7.png" alt="Active Directory Setup" style="max-width: 100%; height: auto; display: block; margin: 10px auto;">
                    </ul>
                 </li>
                 <li><strong>Create User Accounts:</strong>
